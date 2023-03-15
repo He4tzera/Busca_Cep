@@ -13,8 +13,12 @@ def consulta(cep):
         dados_Logradouro = dados['logradouro']
         dados_Bairro = dados["bairro"]
         dados_Localidade = dados['localidade']
+        #Se a Api não responder o logradouro, logo é um cep geral
+        if dados_Logradouro == '':
+            print(f"Cep geral: {dados_Localidade}")
+        else:
+            print(f"{dados_Logradouro}, {dados_Bairro}, {dados_Localidade}")
 
-        print(f"{dados_Logradouro}, {dados_Bairro}, {dados_Localidade}")
     #Except para caso o usuario insira um cep invalido
     except:
         print('Informe um CEP valido!')
